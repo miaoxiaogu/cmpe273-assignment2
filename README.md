@@ -2,4 +2,7 @@
 
 output.txt contains output using POSTMAN
 
-THE 1,2,3 
+The following 3 png show the screenshoot of the output.
+1_Create a test.PNG 
+2_Upload a scantron.PNG
+3_Check all scantron submissions.PNG
