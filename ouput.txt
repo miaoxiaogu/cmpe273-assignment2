@@ -1,0 +1,93 @@
+# cmpe273-spring20-assignment2
+
+1. Create a test
+
+USE POSTMAN 
+POST http://localhost:5000/api/tests 
+
+output is:
+
+{
+    "answers_keys": {
+        "1": "A",
+        "2": "B",
+        "3": "D",
+        "4": "C",
+        "5": "A",
+        "6": "B"
+    },
+    "subject": "Math",
+    "submissions": [],
+    "test_id": 1
+}
+
+
+
+
+
+
+
+
+2. Upload a scantron
+ curl -F 'data=@scantron-1.json' http://localhost:5000/api/tests/1/scantrons
+
+{"name":"Foo Bar","result":{"1":{"actual":"A","expected":"A"},"2":{"actual":"B","expected":"B"},"3":{"actual":"C","expected":"D"},"4":{"actual":"D","expected":"C"},"5":{"actual":"A","expected":"A"},"6":{"actual":"B","expected":"B"}},"scantron_id":1,"scantron_url":"http://localhost:5000/uploads/scantron-1.json","score":4,"subject":"Math"}
+
+
+
+
+3. Check all scantron submissions
+USE POSTMAN
+GET http://localhost:5000/api/tests/1
+
+output is:
+
+{
+    "answer_keys": {
+        "1": "A",
+        "2": "B",
+        "3": "D",
+        "4": "C",
+        "5": "A",
+        "6": "B"
+    },
+    "subject": "Math",
+    "submissions": [
+        {
+            "name": "Foo Bar",
+            "result": {
+                "1": {
+                    "actual": "A",
+                    "expected": "A"
+                },
+                "2": {
+                    "actual": "B",
+                    "expected": "B"
+                },
+                "3": {
+                    "actual": "C",
+                    "expected": "D"
+                },
+                "4": {
+                    "actual": "D",
+                    "expected": "C"
+                },
+                "5": {
+                    "actual": "A",
+                    "expected": "A"
+                },
+                "6": {
+                    "actual": "B",
+                    "expected": "B"
+                }
+            },
+            "scantron_id": 1,
+            "scantron_url": "http://localhost:5000/uploads/scantron-1.json",
+            "score": 4,
+            "subject": "Math"
+        }
+    ],
+    "test_id": "1"
+}
+
+
